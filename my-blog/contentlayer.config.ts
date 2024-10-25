@@ -34,7 +34,7 @@ const computedFields: ComputedFields = {
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: '**/*.mdx',
+  filePathPattern: 'blog/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -42,7 +42,7 @@ export const Blog = defineDocumentType(() => ({
     tags: {type: 'list', of:{type:'string'}, default:[]},
     lastmod:{type:'date'},
     draft:{type:'boolean'},
-    summary:{type:'boolean'},
+    summary:{type:'string'},
     images: { type: 'json' },
     authors: { type: 'list', of: { type: 'string' } },
     description:{type:'string'},
@@ -51,26 +51,46 @@ export const Blog = defineDocumentType(() => ({
     bibliography: { type: 'string' }
   },
   computedFields: {
+    url: { type: 'string', resolve: (post) => `/data/blog/${post._raw.flattenedPath}` },
     ...computedFields,
-    structuredData:{
-        type:'json',
-        resolve: (doc) => ({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: doc.title,
-            datePublished: doc.date,
-            dateModified: doc.lastmod || doc.date,
-            description: doc.summary,
-            image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-            url:`${siteMetadata.siteUrl}/posts/${doc._raw.flattenedPath}`
-        })
-    }
+    // structuredData:{
+    //     type:'json',
+    //     resolve: (doc) => ({
+    //         '@context': 'https://schema.org',
+    //         '@type': 'BlogPosting',
+    //         headline: doc.title,
+    //         datePublished: doc.date,
+    //         dateModified: doc.lastmod || doc.date,
+    //         description: doc.summary,
+    //         image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+    //         url:`${siteMetadata.siteUrl}/posts/${doc._raw.flattenedPath}`
+    //     })
+    // }
   },
+}))
+
+export const Author = defineDocumentType(()=>({
+  name: 'Author',
+  filePathPattern: 'author/*.mdx',
+  contentType: 'mdx',
+  fields:{
+    name: { type: 'string', required: true },
+    avatar: { type: 'string' },
+    occupation: { type: 'string' },
+    company: { type: 'string' },
+    email: { type: 'string' },
+
+    github: { type: 'string' },
+    layout: { type: 'string' },
+  },
+  computedFields:{
+    ...computedFields,
+  }
 }))
 
 export default makeSource({ 
   contentDirPath: 'data', 
-  documentTypes: [Blog],
+  documentTypes: [Blog,Author],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],],
