@@ -3,8 +3,9 @@
 import React from 'react'
 import './globals.css'
 import siteMetadata from '@/data/siteMetadata'
-import Nav from './components/nav/nav'
-import './css/main.css'
+import Nav from '../components/nav/nav'
+import { SearchConfig, SearchProvider } from 'pliny/search/index.js'
+import SectionContainer from '../components/SectionContainer'
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -49,9 +50,13 @@ export const metadata = {
 const RootLayout = ({children}: {children: React.ReactNode}) => {
   return (
     <html lang={siteMetadata.locale}>
-      <body className='layout'>
-        <Nav></Nav>
-        <main>{children}</main>
+      <body>
+        <SectionContainer>
+          <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+            <Nav></Nav>
+            <main>{children}</main>
+          </SearchProvider>
+        </SectionContainer>
       </body>
     </html>
   )

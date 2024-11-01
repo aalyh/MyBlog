@@ -1,10 +1,11 @@
 const siteMetadata = {
-    siteUrl: 'http://localhost:3001/',
+    siteUrl: 'http://localhost:3000/',
     title: 'sulli的技术博客',
     description: 'sulli的技术博客，分享技术、个人成长等内容',
     author:'sulli',
     locale:'zh-CN',
     socialBanner: 'https://cdna.artstation.com/p/assets/images/images/028/138/058/large/z-w-gu-bandageb5f.jpg?1593594749',
+    theme:'light',
     search: {
       provider: 'kbar', // kbar or algolia
       kbarConfig: {

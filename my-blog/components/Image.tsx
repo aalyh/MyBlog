@@ -1,6 +1,6 @@
 import NextImage, { ImageProps } from 'next/image'
 
-const basePath = process.env.BASE_PATH
+const basePath = process.env.BASE_PATH 
 
 const Image = ({ src, ...rest }: ImageProps) => (
   <>

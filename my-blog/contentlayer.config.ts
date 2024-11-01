@@ -13,8 +13,12 @@ import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
 import rehypePresetMinify from 'rehype-preset-minify'
 import path from 'path'
+import { slug } from 'github-slugger'
 
 const root = process.cwd()
+// const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = true;
+
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
@@ -31,6 +35,22 @@ const computedFields: ComputedFields = {
   },
   toc: { type: 'json', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
+
+// function createTagCount(allBlogs: any[]){
+//   const tagCount: Record<string, number> = {};
+//   allBlogs.forEach((file)=>{
+//     if(file.tags && (!isProduction || file.draft !== true)){
+//       file.tags.forEach((tag: string)=>{
+//         const formattedTag = slug(tag);
+//         if (formattedTag in tagCount) {
+//           tagCount[formattedTag] += 1
+//         } else {
+//           tagCount[formattedTag] = 1
+//         }
+//       })
+//     }
+//   })
+// }
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
@@ -91,37 +111,37 @@ export const Author = defineDocumentType(()=>({
 export default makeSource({ 
   contentDirPath: 'data', 
   documentTypes: [Blog,Author],
-  mdx: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],],
-  }
   // mdx: {
-  //   cwd: process.cwd(),
-  //   remarkPlugins: [
-  //     // remarkExtractFrontmatter,
-  //     remarkGfm,
-  //     remarkCodeTitles,
-  //     remarkMath,
-  //     remarkImgToJsx,
-  //     remarkAlert,
-  //   ],
-  //   rehypePlugins: [
-  //     rehypeSlug,
-  //     [
-  //       rehypeAutolinkHeadings,
-  //       {
-  //         behavior: 'prepend',
-  //         headingProperties: {
-  //           className: ['content-header'],
-  //         },
-  //       },
-  //     ],
-  //     // rehypeKatex,
-  //     // [rehypeCitation, { path: path.join(root, 'data') }],
-  //     // [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
-  //     // rehypePresetMinify,
-  //   ],
-  // },
+  //   remarkPlugins: [remarkGfm],
+  //   rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],],
+  // }
+  mdx: {
+    cwd: process.cwd(),
+    remarkPlugins: [
+      // remarkExtractFrontmatter,
+      remarkGfm,
+      remarkCodeTitles,
+      remarkMath,
+      remarkImgToJsx,
+      remarkAlert,
+    ],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'prepend',
+          headingProperties: {
+            className: ['content-header'],
+          },
+        },
+      ],
+      // rehypeKatex,
+      // [rehypeCitation, { path: path.join(root, 'data') }],
+      // [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      // rehypePresetMinify,
+    ],
+  },
   // onSuccess: async (importData) => {
   //   const { allBlogs } = await importData()
   //   createTagCount(allBlogs)
