@@ -1,4 +1,9 @@
+import Card from "@/components/card";
+import { allProjects } from "contentlayer/generated"
+import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js";
+
 export default function ProjectsPage(){
+    const projects = allCoreContent(allProjects);
     return(
         <>
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -11,8 +16,10 @@ export default function ProjectsPage(){
                     </p>
                 </div>
                 <div className="container py-12">
-                    <div>
-                        
+                    <div className="-m-4 flex flex-wrap">
+                        {projects.map((project)=>(
+                            <Card key={project.title} title={project.title} description={project.description} imgSrc={project.imgSrc} github={project.github} slug={project.slug}></Card>
+                        ))}
                     </div>
                 </div>
             </div>

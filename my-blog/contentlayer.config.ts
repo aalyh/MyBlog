@@ -128,9 +128,26 @@ export const Person = defineDocumentType(()=>(
   }
 ))
 
+export const Project = defineDocumentType(()=>({
+  name:'Project',
+  filePathPattern: 'project/*.mdx',
+  contentType: 'mdx',
+  fields:{
+    title:{type:'string', required: true},
+    description:{type:'string',required:true},
+    imgSrc:{type:'json'},
+    github:{type: 'string'},
+    authors:{type:'list',of: { type: 'string' }},
+    video:{type:'json'}
+  },
+  computedFields: {
+    ...computedFields,
+  },
+}))
+
 export default makeSource({ 
   contentDirPath: 'data', 
-  documentTypes: [Blog,Author,Person],
+  documentTypes: [Blog,Author,Person,Project],
   // mdx: {
   //   remarkPlugins: [remarkGfm],
   //   rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],],
