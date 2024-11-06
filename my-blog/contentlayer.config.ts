@@ -108,9 +108,29 @@ export const Author = defineDocumentType(()=>({
   }
 }))
 
+export const Person = defineDocumentType(()=>(
+  {
+    name:'Person',
+    filePathPattern: 'info/*.mdx',
+    contentType: 'mdx',
+    fields:{
+      name: { type: 'string', required: true },
+      avatar: { type: 'string' },
+      occupation: { type: 'string' },
+      company: { type: 'string' },
+      email: { type: 'string' },
+      github: { type: 'string' },
+      layout: { type: 'string' },
+    },
+    computedFields:{
+      ...computedFields,
+    }
+  }
+))
+
 export default makeSource({ 
   contentDirPath: 'data', 
-  documentTypes: [Blog,Author],
+  documentTypes: [Blog,Author,Person],
   // mdx: {
   //   remarkPlugins: [remarkGfm],
   //   rehypePlugins: [[rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],],

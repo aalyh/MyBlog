@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // app/layout.js
 import React from 'react'
-import './globals.css'
+import 'app/css/tailwind.css'
 import siteMetadata from '@/data/siteMetadata'
 import Nav from '../components/nav/nav'
 import { SearchConfig, SearchProvider } from 'pliny/search/index.js'

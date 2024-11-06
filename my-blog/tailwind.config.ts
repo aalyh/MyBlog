@@ -7,7 +7,7 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,tsx}',
     './components/**/*.{js,ts,tsx}',
-    './layouts/**/*.{js,ts,tsx}',
+    './layout/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
   darkMode: 'class',
