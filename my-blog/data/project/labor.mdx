@@ -1,87 +1,59 @@
 ---
-title: 基于文心一言的智能阅卷系统
+title: 基于易班的劳动二科考评系统
 github: https://github.com/aalyh/AI-judge_student.git
-description: 易智阅AI阅卷平台,通过文心一言大模型实现ai辅助阅卷，成绩分析等功能。
-authors: ['sulli','YieldRay','MarchRory']
-imgSrc: /static/aiPaper.png
+description: 基于易班平台的劳动二课系统，基于学校劳动二课课程的背景进行开发，拥有学生端和管理端
+authors: ['sulli','MarchRory']
+imgSrc: /static/labor.png
 ---
-
-# 易智阅AI阅卷平台
-
-[预览地址](https://1713229008044-ai-judge-papers.surge.sh) [下载构建产物](https://ai-judge-papers.surge.sh/dist.tar.gz)
-
-> 持续集成, 不过得线下跑后端和AI才能正常用
+# 基于易班的劳动二科考评系统
 
 ## 背景
 
-2024 中国大学生服务外包创新创业大赛[A01]赛题
+基于西南石油大学劳动二课课程的背景进行开发
 
 ## 前端开发人员
 
-负责人: MarchRory
-
-### 教师端
-
 - MarchRory
-- YieldRay
-- aalyh
-
-### 学生端
-
 - aalyh
 
 ## 前端技术栈
 
-| 分类             | 选型                               |
-| ---------------- | ---------------------------------- |
-| 框架             | Vue3 全家桶                        |
-| 状态管理         | Pinia                              |
-| 语言             | TypeScript                         |
-| 后台模板         | Acro-Design-pro-vue                |
-| 组件库           | Arco-Design-vue                    |
-| CSS 框架         | UnoCSS, 这种规模的项目用原子化方便 |
-| 图标集           | iconify 里挑一个, 感觉 tabler 还行 |
-| 第三方 hooks 库  | VueUse                             |
-| 网络请求库(待选) | axios                              |
-
-## vsocde 插件建议
-
-安装 `Git History`, 为自己模块负责
+| 分类             | 选型                                    |
+| ---------------- | ----------------------------------------|
+| 框架             | Vue3 全家桶                             |
+| 状态管理         | Pinia                                   |
+| 语言             | TypeScript                              |
+| 组件库           | Vant4                                   |
+| CSS 框架         | tailwindcss, 这种规模的项目用原子化方便  |
+| 网络请求库       | axios                                   |
+| 年度报告         | GSAP3                                   |
 
 ## 部分模块预览
 
-### 1、登录
+### 1、学生端-年度报告
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106151946.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110419.png)
 
-### 2、试题库
+### 2、学生端-课程详情
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106153851.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110616.png)
 
-### 3、简答题参考答案配置
+### 3、学生端-课程评价
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106153926.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110710.png)
 
-### 4、历史考试列表
+### 4、学生端-自定义活动目标和培养进度
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106153949.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110751.png)
 
-### 5、考试试题卷配置
+### 5、学生端-Flag制订
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106154017.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110902.png)
 
-### 6、AI实时阅卷进度
+### 6、管理端-可视化统计分析
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106154046.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107110937.png)
 
-### 7、AI阅卷结果复审
+### 7、管理端-评价模板
 
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106154110.png)
-
-### 8、数据可视化分析
-
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106154140.png)
-
-### 9、AI分析助理
-
-![image](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241106154225.png)
+![images](https://sulli-k.oss-cn-chengdu.aliyuncs.com/images/20241107111015.png)
