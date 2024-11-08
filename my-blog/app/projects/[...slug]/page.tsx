@@ -2,7 +2,7 @@ import ProjectLayout from "@/layout/ProjectLayout"
 import { allProjects, Project, allAuthors, Author } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 import { MDXLayoutRenderer } from "pliny/mdx-components.js"
-import { coreContent,allCoreContent, sortPosts } from "pliny/utils/contentlayer.js"
+import { coreContent,allCoreContent } from "pliny/utils/contentlayer.js"
 
 export default async function Page({params}: {params:{slug: string[]}}){
     const slug = decodeURI(params.slug.join('/'))

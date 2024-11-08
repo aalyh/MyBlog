@@ -1,6 +1,6 @@
 import Card from "@/components/card";
 import { allProjects } from "contentlayer/generated"
-import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js";
+import { allCoreContent } from "pliny/utils/contentlayer.js";
 
 export default function ProjectsPage(){
     const projects = allCoreContent(allProjects);

@@ -47,7 +47,7 @@ export const metadata = {
   }
 }
 
-const RootLayout = ({children}: {children: React.ReactNode}) => {
+const RootLayout = ({children}: any) => {
   return (
     <html lang={siteMetadata.locale}>
       <body>

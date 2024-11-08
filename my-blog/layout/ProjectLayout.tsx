@@ -3,7 +3,6 @@ import Image from '@/components/Image'
 import PageTitle from "@/components/PageTitle"
 import ScrollTopAndComment from "@/components/ScrollTopAndComment"
 import SectionContainer from "@/components/SectionContainer"
-import siteMetadata from "@/data/siteMetadata"
 import { Author, Project } from "contentlayer/generated"
 import { CoreContent } from "pliny/utils/contentlayer.js"
 import { ReactNode } from "react"

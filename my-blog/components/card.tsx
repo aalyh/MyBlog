@@ -7,7 +7,7 @@ interface CardProps{
     slug:string,
     github?:string
 }
-export default function Card ({title, description, imgSrc, github,slug}:CardProps){
+export default function Card ({title, description, imgSrc, slug}:CardProps){
     return(
         <div className="md max-w-[544px] p-4 md:w-1/2">
             <Link href={`/projects/${slug}`} aria-label={`Link to ${title}`}>

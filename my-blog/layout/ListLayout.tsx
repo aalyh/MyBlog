@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Blog } from "contentlayer/generated"
 import { CoreContent } from "pliny/utils/contentlayer.js"
 
